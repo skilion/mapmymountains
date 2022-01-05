@@ -1,0 +1,152 @@
+string	en	it
+account_reg_ok	Account created successfully. Check your email and click the link to activate it.	Account creato con successo. Controlla la tua email e clicca sul link per attivarlo.
+add	Add	Aggiungi
+alert	Alert	Avvertimento
+alternate_names	Alternate names	Nomi alternativi
+annotated_peaks	Annotated peaks	Picchi annotati
+annotation	Annotation	Annotazione
+annotation_saved	Annotation saved	Annotazione salvata
+annotations	Annotations	Annotazioni
+anonymous	Anonymous	Anonimo
+are_you_registered	Are you already registered?	Sei già registrato?
+area_saved	The area has been saved	L’area è stata salvata
+campaign	Campaign	Campagna
+campaigns	Campaigns	Campagne
+cancel	Cancel	Annulla
+close	Close	Chiudi
+confirm	Confirm	Conferma
+continue	Continue	Continua
+create_account	Create a new account	Crea un nuovo account
+create_campaign	Create campaign	Crea campagna
+create_new_campaign	Create a new campaign	Crea una nuova campagna
+curr_email	Current e-mail	E-mail corrente
+date_is_invalid	Date is invalid	La data non è valida
+delete	Delete	Cancella
+delete_area	Delete area	Cancella area
+delete_campaign_msg	Are you sure that you want to delete the campaign with all its associated annotations?	Sei sicuro di voler cancellare la campagna con tutte le annotazioni associate?
+delete_source_confirm	Are you sure that you want to delete the source with all its associated peaks?	Sei sicuro di voler cancellare la sorgente con tutti i picchi associati?
+description	Description	Descrizione
+description_empty_error	Description cannot be empty	La descrizione non può essere vuota
+edit	Edit	Modifica
+edit_campaign	Edit campaign	Modifica campagna
+elevation	elevation	Altezza
+email_changed	E-mail changed	E-mail cambiata
+email_placeholder	james@email.com	mario@email.it
+email_sent	Email sent	Email inviata
+email_valid	Email must be valid	L’e-mail deve essere valida
+end_date_past_error	The end date cannot be in the past	La data di fine non può essere nel passato
+ends_on	Ends on	Finisce il
+enter_area_name	Enter the name of the area	Inserisci il nome dell’area
+error	Error	Errore
+feedback	Feedback	Feedback
+feedback_sent	Feedback sent	Feedback inviato
+file	File	File
+file_empty_error	Choose a file	Scegli un file
+filters	Filters	Filtri
+generic_peaks	Generic peaks	Picchi generici
+gps_coords	GPS coordinates	Coordinate GPS
+help	Help	Aiuto
+how_was_experience	How was your experience?	Com’è stata la tua esperienza?
+invalid_pass_reset_link	Invalid password reset link	Link per il ripristino della password invalido
+invalid_user_activation_link	Account activation link invalid.	Il link per attivare l’account non è valido.
+invite_to_register	No? Register here!	No? Registrati qui!
+is_peak	Is this a peak?	E’ un picco?
+line_intersection_error	Lines cannot intersect	Le linee non possono sovrapporsi
+loading	Loading…	Caricamento…
+login	Login	Login
+logout	Logout	Logout
+map	Map	Mappa
+more	More	Altro
+name	Name	Nome
+name_empty_error	Name cannot be empty	Il nome non può essere vuoto
+name_exists	The name already exists	Il nome esista già
+new_area_set	New area set	Nuova area impostata
+new_email	New e-mail	Nuova e-mail
+new_pass	New password	Nuova password
+next	Next	Successivo
+no	No	No
+no_annotated_peaks	No annotated peaks	Nessun picco annotato
+no_annotations	No annotations	Nessuna annotazione
+no_area_drawn	There is no area drawn	Non c’è nessun area disegnata
+no_area_selected	No area selected	Nessun area selezionata
+no_campaigns_available	No campaigns available	Nessuna campagna disponibile
+no_results	No results	Nessun risultato
+no_source_available	No source available	Nessuna sorgente disponibile
+notice	Notice	Avviso
+num_of_annotations	Number of annotations	Numero di annotazioni
+num_of_peaks	Number of peaks	Numero di picchi
+open	Open	Apri
+other_peak_name	Other peak name	Altro nome del picco
+pass_changed	Password changed	Password cambiata
+pass_length	Password lenght must be at least 5 characters	La lunghezza della password deve essere di almeno 5 caratteri
+pass_match	Passwords do not match	Le password non corrispondono
+password	Password	Password
+password_reset	Password reset	Ripristina la password
+peak	Peak	Picco
+peak_exists	Yes, and it already exists	Si, ed esiste già
+peak_list	Peak list	Lista dei picchi
+peak_name	Peak name	Nome del picco
+peaks_file	Peaks file	File dei picchi
+peaks_from_dem	Peaks from DEM	Picchi dal DEM
+peaks_marked_invalid	Peaks marked invalid	Picchi segnati non validi
+peaks_marked_valid	Peaks marked valid	Picchi segnati validi
+peaks_to_annotate	Peaks to annotate	Picchi da annotare
+peaks_uploaded	Peaks uploaded successfully	Picchi caricati con successo
+preferred_area	Preferred area	Area preferita
+previous	Previous	Precedente
+ref_source	Reference source	Sorgente di riferimento
+reference_peaks	Reference peaks	Picchi di riferimento
+repeat_pass	Repeat password	Ripetere la password
+rotate_off	Rotate OFF	Ruota OFF
+rotate_on	Rotate ON	Ruota ON
+save	Save	Salva
+save_area	Save area	Salva area
+search	Search	Cerca
+select_an_area	Select an area	Seleziona un’area
+select_peak	Select a peak	Seleziona un picco
+select_similar_peak	Select the peak that you consider similar	Seleziona il picco che consideri simile
+select_source	Select a source	Seleziona una sorgente
+send	Send	Invia
+send_email	Send email	Invia email
+set_area	Set area	Imposta l’area
+set_email	Set e-mail	Imposta e-mail
+set_pass	Set password	Imposta password
+settings	Settings	Impostazioni
+share	Share	Condividi
+share_peak_email_body	Hi\nCan you tell me what is this peak?	Ciao\nPuoi dirmi cos’è questo picco?
+share_peak_email_subject	What is this peak?	Cos’è questo picco?
+size	Size	Dimensione
+source	Source	Sorgente
+source_deleted	Source deleted	Sorgente cancellata
+source_info	Source information	Informazioni sorgente
+source_name	Source name	Nome sorgente
+sources_of_peaks	Sources of peaks	Sorgenti di picchi
+start	Start	Inizia
+start_date_past_error	The start date cannot be in the past	La data di inizio non può essere nel passato
+start_end_date_error	The ending date must come after the starting date	La data di fine deve essere successiva alla data d’inizio
+starts_on	Starts on	Comincia il
+statistics	Statistics	Statistiche
+tell_us_why	Tell us why	Raccontaci perché
+top_annotators	Top annotators	Annotatori migliori
+top_campaigns	Top campaigns	Campagne migliori
+tutorial	Tutorial	Tutorial
+upload	Upload	Carica
+upload_area	Upload area	Upload area
+user	User	Utente
+user_activation_ok	The account has been activated. Now you can login.	L’account è stato attivato. Adesso puoi fare il login.
+username	Username	Nome utente
+username_error	Username must be at least 5 characters long using only letters, numbers and _	Il nome utente deve essere lungo almeno 5 caratteri usando solo lettere, numeri e _
+username_not_exists	The username does not exists	Il nome utente non esiste
+users	Users	Utenti
+view_peak_annotations	View peak annotations	Vedi le annotazioni del picco
+want_to_delete	Do you want to delete	Vuoi cancellare
+want_to_overwrite	Do you want to overwrite	Vuoi sovrascrivere
+welcome_mmm	Welcome to Map My Mountains!	Benvenuto in Map My Mountains!
+what_is_annotation	This box shows the currently selected peak and allows to answer to simple questions. If you think that the peak is not valid you can proceed to the next one. If instead you think that the peak is valid, you will be asked to insert its ufficial name and elevation, if you don’t know you can ignore them. In every case you must save your answers by pressing the “Save” button.	Questa sezione mostra il picco correntemente selezionato e ti permette di rispondere a delle semplici domande. Se ritieni che il picco non sia valido puoi procedere a quello sucessivo. Se invece ritieni che il picco sia valido, ti verrà chiesto di inserire il suo nome e altezza ufficiali, se non li conosci puoi ignorarli. In tutti i casi devi salvare le tue risposte premendo il pulsante “Salva”.
+what_is_map	This view allows you to visualize the position of the selected peak. The tridimensional map is interactive, if you disable the rotation mode, and you can use the mouse or the arrows keys to change the point of view. If you prefer, a bidimensional map with contour lines is available by clicking the button in the bottom left.	Questa vista ti permette di visualizzare la posizione del picco selezionato. La mappa tridimensionale è interattiva (se esci dalla modalita rotazione) e puoi usare il mouse o le frecce sulla tastiera per cambiare la visuale. Se preferisci, è disponibile una cartina bidimensionale con le curve di livello apribile cliccando sul pulsante in basso a sinistra. 
+what_is_mmm	Map My Mountains is a crowdsourcing tool that visualizes peaks that have been found by automatically analyzing digital elevation models (DEM) of the terrain. The aim of this tool is to allow a user to visualize each of the found peaks and verify whether they could be really considered peaks or not.	Map My Mountains è uno strumento di crowdsourcing che visualizza picchi che sono stati trovati in modo automatico analizzando il modello digitale del terreno. Lo scopo di questo strumento è di permettere ad un utente di visualizzare ognuno dei picchi trovati e verificare se possono essere veramente considerati dei picchi.
+what_is_peak_list	This box provides the list of peaks. The peaks are identified by a progressive ID. Clicking on one of the peaks of the list will center the map view on it and it will be possible to label it as a peak or not.	Questa è la lista dei picchi. I picchi sono identificati da un ID unico. Clicca su uno dei picchi per centrare la mappa su di esso, sarà poi possibile marcarlo come un picco reale o no.
+whats_its_elevation	What is its elevation? (meters)	Qual’è la sua altezza? (metri)
+whats_its_name	What is its name?	Qual’è il suo nome?
+wrong_user_pass	Wrong username or password	Nome utente o password sbagliati
+yes	Yes	Si

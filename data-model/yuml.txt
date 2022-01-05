@@ -1,0 +1,49 @@
+Use in https://yuml.me/diagram/scruffy/class/draw
+
+-- SNAPSHOTS
+
+[snapshot|id;creation_time;description;]
+[snapshot_element|id;snapshot_id;element_id;type;elevation;coordinates;name;alternate_names;wikidata_id;wikipedia_link;]
+
+[snapshot]1-0..*[snapshot_element]
+
+-- SOURCES
+
+[source|id;description;general_confidence;type;]
+[source_element|id;version;element_id;source_id;type;creation_time;valid;elevation;coordinates;name;wikidata_id;wikipedia_link;area_group;]
+[source_element_alt_name|id;source_element_id;source_element_version;isolanguage;alternate_name;]
+[source_reference|source_element_id;type;cgn_toponymic_id;ct10_cod_ele;osm_type;osm_id;osm_version;geoname_id;geoname_mtime;custom_id;]
+[source_element_similarity|source_element1_id;source_element1_version;source_element2_id;source_element2_version;]
+
+[source]1-0..*[source_element]
+[source_element]1-0..*[source_element_alt_name]
+[source_element]1-0..1[source_reference]
+[source_element_similarity]0..1-1[source_element]
+[source_element_similarity]0..1-1[source_element]
+
+-- USERS
+
+[permission|id;]
+[user_permission|user_id;permission_id;]
+[mmm_user|id;creation_time;email;preferred_area;password_hash;salt;activation_code;active;ignore;view_tutorial;pass_recovery_code;]
+[access_token|id;mmm_user_id;creation_time;token;]
+
+[access_token]0..*-1[mmm_user]
+[mmm_user]1-0..*[user_permission]
+[user_permission]0..*-1[permission]
+
+-- CAMPAIGNS
+
+[campaign|id;name;description;user_id;creation_time;start_time;end_time;source_id;ref_source_id;boundary;]
+[annotation|id;user_id;campaign_id;source_element_id;source_element_version;creation_time;processed_time;similar_element_id;similar_element_version;valid;name;coordinates;elevation;wikipedia_link;wikidata_id;]
+[annotation_alt_name|id;annotation_id;source_element_alt_name_id;isolanguage;alternate_name;]
+[area|id;user_id;creation_time;boundary;]
+
+[area]0..*-1[mmm_user]
+[campaign]0..*-1[mmm_user]
+[campaign]0..*-1..2[source]
+[annotation]0..*-1[mmm_user]
+[annotation]0..*-0..1[campaign]
+[annotation]0..*-0..2[source_element]
+[annotation_alt_name]0..*-1[annotation]
+[annotation_alt_name]0..*-0..1[source_element_alt_name]
