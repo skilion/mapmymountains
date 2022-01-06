@@ -1,11 +1,11 @@
-const scrypt = require('scrypt');
+var crypto = require('crypto');
 
-/* Computes the hash of a password given:
+/* Computes the hash of a given password:
  *  - password: string
  *  - salt: Buffer
  */
 module.exports = function (password, salt)
 {
-	let password_buffer = Buffer.from(password);
-	return scrypt.hashSync(password_buffer, {"N": 16384, "r": 8, "p": 1}, 64, salt);
+    const keyLenght = 64;
+    return crypto.scryptSync(password, salt, keyLenght);
 }
