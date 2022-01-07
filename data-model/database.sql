@@ -5,6 +5,51 @@
  */
 
 -------------------------------------------------------------------------------
+-- Users
+-------------------------------------------------------------------------------
+
+CREATE TABLE permission (
+    id  text  PRIMARY KEY
+);
+
+CREATE TABLE mmm_user (
+    id                  text       PRIMARY KEY,
+    creation_time       timestamp  NOT NULL,
+    email               text       NOT NULL,
+    preferred_area      polygon,
+    password_hash       bytea      NOT NULL,
+    salt                bytea      NOT NULL,
+    activation_code     text       NOT NULL,
+    active              boolean    NOT NULL DEFAULT FALSE,
+    ignore              boolean    NOT NULL DEFAULT FALSE,
+    view_tutorial       boolean    NOT NULL DEFAULT FALSE,
+    pass_recovery_code  text
+);
+
+CREATE TABLE user_permission (
+    user_id        text  REFERENCES mmm_user (id) ON DELETE CASCADE ON UPDATE CASCADE,
+    permission_id  text  REFERENCES permission (id),
+    PRIMARY KEY (user_id, permission_id)
+);
+
+CREATE TABLE access_token (
+    id             serial     PRIMARY KEY,
+    mmm_user_id    text       NOT NULL REFERENCES mmm_user (id) ON DELETE CASCADE ON UPDATE CASCADE,
+    creation_time  timestamp  NOT NULL,
+    token          text       NOT NULL
+);
+
+-- permissions
+INSERT INTO permission VALUES
+    ('create_annotation'),
+    ('create_campaign'),
+    ('edit_element'),
+    ('upload_peaks'),
+    ('view_stats'),
+    ('edit_users'),
+    ('search');
+
+-------------------------------------------------------------------------------
 -- Data sources
 -------------------------------------------------------------------------------
 
@@ -116,51 +161,6 @@ CREATE TABLE area (
     creation_time        timestamp,
     boundary             polygon
 );
-
--------------------------------------------------------------------------------
--- Users
--------------------------------------------------------------------------------
-
-CREATE TABLE permission (
-    id  text  PRIMARY KEY
-);
-
-CREATE TABLE user_permission (
-    user_id        text  REFERENCES mmm_user (id) ON DELETE CASCADE ON UPDATE CASCADE,
-    permission_id  text  REFERENCES permission (id),
-    PRIMARY KEY (user_id, permission_id)
-);
-
-CREATE TABLE mmm_user (
-    id                  text       PRIMARY KEY,
-    creation_time       timestamp  NOT NULL,
-    email               text       NOT NULL,
-    preferred_area      polygon,
-    password_hash       bytea      NOT NULL,
-    salt                bytea      NOT NULL,
-    activation_code     text       NOT NULL,
-    active              boolean    NOT NULL DEFAULT FALSE,
-    ignore              boolean    NOT NULL DEFAULT FALSE,
-    view_tutorial       boolean    NOT NULL DEFAULT FALSE,
-    pass_recovery_code  text
-);
-
-CREATE TABLE access_token (
-    id             serial     PRIMARY KEY,
-    mmm_user_id    text       NOT NULL REFERENCES mmm_user (id) ON DELETE CASCADE ON UPDATE CASCADE,
-    creation_time  timestamp  NOT NULL,
-    token          text       NOT NULL
-);
-
--- permissions
-INSERT INTO permission VALUES
-    ('create_annotation'),
-    ('create_campaign'),
-    ('edit_element'),
-    ('upload_peaks'),
-    ('view_stats'),
-    ('edit_users'),
-    ('search');
 
 -------------------------------------------------------------------------------
 -- Annotations
