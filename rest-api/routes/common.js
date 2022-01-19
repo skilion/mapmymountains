@@ -54,7 +54,9 @@ module.exports.requirePermission = function (permission) {
  */
 module.exports.loadJSON = function (filepath) {
 	let data = fs.readFileSync(filepath, { encoding: 'utf8' });
-	let lines = data.split('\n');
+	let lines = data
+		.split('\n')
+		.map(line => line.trim());
 	let isJSONL = lines.every(line => !line || (line.startsWith('{') && line.endsWith('}')));
 	if (isJSONL) {
 		return lines.map(x => JSON.parse(x));
