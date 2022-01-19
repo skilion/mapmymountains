@@ -34,6 +34,7 @@ router.post('/',
 			} catch (err) {
 				await users.delete(userId);
 				next(err);
+				return;
 			}
 
 			res.json(userData);
