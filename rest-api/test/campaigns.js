@@ -31,8 +31,8 @@ describe('/api/v1/campaigns', () => {
 				start_time: '2018-08-16T14:58:00.000Z',
 				end_time: '2018-09-01T00:00:00Z',
 				boundary: [[9,45],[10,45],[10,46]],
-				source_id: 'OpenStreetMap',
-				ref_source_id: 'OpenStreetMap'
+				source_id: 'test',
+				ref_source_id: 'test'
 			})
 			.expect(200)
 			.expect(res => {
@@ -41,8 +41,8 @@ describe('/api/v1/campaigns', () => {
 				assert.strictEqual(res.body.start_time, '2018-08-16T14:58:00.000Z');
 				assert.strictEqual(res.body.end_time, '2018-09-01T00:00:00.000Z');
 				assert(Array.isArray(res.body.boundary));
-				assert.strictEqual(res.body.source_id, 'OpenStreetMap');
-				assert.strictEqual(res.body.ref_source_id, 'OpenStreetMap');
+				assert.strictEqual(res.body.source_id, 'test');
+				assert.strictEqual(res.body.ref_source_id, 'test');
 				assert.strictEqual(res.body.user_id, user.id);
 				campaignId = res.body.id;
 			})
@@ -56,7 +56,7 @@ describe('/api/v1/campaigns', () => {
 					start_time: '2018-08-16T15:58:00.000Z',
 					end_time: '2018-09-01T01:00:00Z',
 					boundary: [[9,45],[10,45],[10,46]],
-					source_id: 'OpenStreetMap'
+					source_id: 'test'
 				})
 				.expect(200)
 				.expect(res => {
@@ -82,7 +82,7 @@ describe('/api/v1/campaigns', () => {
 				.post('/api/v1/annotations')
 				.set('authorization', global.user.token)
 				.send({
-					source_element_id: 8276335,
+					source_element_id: 7118390,
 					source_element_version: 0,
 					campaign_id: campaign.id,
 					valid: true
@@ -111,7 +111,7 @@ describe('/api/v1/campaigns', () => {
 				assert(Array.isArray(res.body.ref_peaks));
 				assert(res.body.peaks.length > 100);
 				assert(res.body.peaks.length === res.body.ref_peaks.length);
-				assert(res.body.peaks.some(x => x.annotation && x.annotation.source_element_id == 8276335));
+				assert(res.body.peaks.some(x => x.annotation && x.annotation.source_element_id == 7118390));
 			})
 			.expect(200, done);
 		});

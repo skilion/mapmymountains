@@ -14,10 +14,10 @@ describe('GET /api/v1/sources', () => {
 		.end(done);
 	});
 
-	it('should return OpenStreetMap', done => {
+	it('should return test', done => {
 		request(app)
 		.get('/api/v1/sources')
-		.expect(res => assert(res.body.some(e => e.id == 'OpenStreetMap')))
+		.expect(res => assert(res.body.some(e => e.id == 'test')))
 		.end(done);
 	});
 });
@@ -25,7 +25,7 @@ describe('GET /api/v1/sources', () => {
 describe('POST /api/v1/sources/:id/info', () => {
 	it('should returns source info', done => {
 		request(app)
-		.post('/api/v1/sources/OpenStreetMap/info')
+		.post('/api/v1/sources/test/info')
 		.expect(200)
 		.expect('Content-Type', /json/)
 		.expect(res => assert(res.body.num_peaks > 1000))
@@ -37,7 +37,7 @@ describe('POST /api/v1/sources/:id/info', () => {
 
 	it('returns source info with area filter', done => {
 		request(app)
-		.post('/api/v1/sources/OpenStreetMap/info')
+		.post('/api/v1/sources/test/info')
 		.send({ area: [[9,45],[10,45],[10,46],[9,46]] })
 		.expect(200)
 		.expect('Content-Type', /json/)

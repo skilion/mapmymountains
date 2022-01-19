@@ -90,9 +90,9 @@ module.exports.createTestCampaign = function (token, callback)
 		description: 'test',
 		start_time: '2018-08-16T14:58:00.000Z',
 		end_time: '2018-09-01T00:00:00Z',
-		boundary: [[9,45],[10,45],[10,46]],
-		source_id: 'OpenStreetMap',
-		ref_source_id: 'OpenStreetMap'
+		boundary: [[7.5,45.5],[8,45.5],[8,46],[7.5,46]],
+		source_id: 'test',
+		ref_source_id: 'test'
 	})
 	.expect(200)
 	.then(res => callback(null, res.body))

@@ -38,7 +38,7 @@ describe('/api/v1/annotations', () => {
 		.set('authorization', user.token)
 		.send({
 			campaign_id: campaign.id,
-			source_element_id: 8505160,
+			source_element_id: 7118390,
 			source_element_version: 0,
 			name: 'test',
 			valid: false
@@ -46,7 +46,7 @@ describe('/api/v1/annotations', () => {
 		.expect(200)
 		.then(res => {
 			annotation = res.body;
-			assert.strictEqual(annotation.source_element_id, 8505160);
+			assert.strictEqual(annotation.source_element_id, 7118390);
 			assert.strictEqual(annotation.name, 'test');
 			assert.strictEqual(annotation.valid, false);
 			// update annotation
@@ -55,7 +55,7 @@ describe('/api/v1/annotations', () => {
 			.set('authorization', user.token)
 			.send({
 				campaign_id: campaign.id,
-				source_element_id: 8505160,
+				source_element_id: 7118390,
 				source_element_version: 0,
 				valid: true,
 				name: 'test2',
@@ -78,15 +78,15 @@ describe('/api/v1/annotations', () => {
 			.expect(res => {
 				assert.strictEqual(typeof res.body, 'object');
 				assert.strictEqual(Object.keys(res.body).length, 1);
-				assert.strictEqual(res.body[8505160][0].campaign_id, annotation.campaign_id);
-				assert.strictEqual(res.body[8505160][0].source_element_id, annotation.source_element_id);
-				assert.strictEqual(res.body[8505160][0].valid, true);
-				assert.strictEqual(res.body[8505160][0].name, 'test2');
-				assert.strictEqual(res.body[8505160][0].elevation, 1001);
-				assert(Array.isArray(res.body[8505160][0].alternate_names));
-				assert.strictEqual(res.body[8505160][0].alternate_names.length, 1);
-				assert.strictEqual(res.body[8505160][0].alternate_names[0].isolanguage, 'it');
-				assert.strictEqual(res.body[8505160][0].alternate_names[0].alternate_name, 'test');
+				assert.strictEqual(res.body[7118390][0].campaign_id, annotation.campaign_id);
+				assert.strictEqual(res.body[7118390][0].source_element_id, annotation.source_element_id);
+				assert.strictEqual(res.body[7118390][0].valid, true);
+				assert.strictEqual(res.body[7118390][0].name, 'test2');
+				assert.strictEqual(res.body[7118390][0].elevation, 1001);
+				assert(Array.isArray(res.body[7118390][0].alternate_names));
+				assert.strictEqual(res.body[7118390][0].alternate_names.length, 1);
+				assert.strictEqual(res.body[7118390][0].alternate_names[0].isolanguage, 'it');
+				assert.strictEqual(res.body[7118390][0].alternate_names[0].alternate_name, 'test');
 
 			})
 		})
@@ -104,18 +104,18 @@ describe('/api/v1/annotations', () => {
 		.set('authorization', user.token)
 		.send({
 			campaign_id: campaign.id,
-			source_element_id: 8505160,
+			source_element_id: 7118390,
 			source_element_version: 0,
 			valid: true,
-			similar_element_id: 8505161,
+			similar_element_id: 7555002,
 			similar_element_version: 0
 		})
 		.expect(200)
 		.then(res => {
 			annotation = res.body;
-			assert.strictEqual(annotation.source_element_id, 8505160);
+			assert.strictEqual(annotation.source_element_id, 7118390);
 			assert.strictEqual(annotation.source_element_version, 0);
-			assert.strictEqual(annotation.similar_element_id, 8505161);
+			assert.strictEqual(annotation.similar_element_id, 7555002);
 			assert.strictEqual(annotation.similar_element_version, 0);
 		})
 		.then(() => done())

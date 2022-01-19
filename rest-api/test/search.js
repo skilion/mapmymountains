@@ -27,7 +27,7 @@ describe('GET /api/v1/search', () => {
 
 	it('should return peaks with all properties', done => {
 		request(app)
-		.get('/api/v1/search?q=aiguille+source:OpenStreetMap+source:GeoNames')
+		.get('/api/v1/search?q=aiguille+source:test')
 		.set('Authorization', user.token)
 		.expect(200)
 		.expect(res => assert(
@@ -35,7 +35,6 @@ describe('GET /api/v1/search', () => {
 				"id" in x &&
 				"version" in x &&
 				"source_id" in x &&
-				"creation_time" in x &&
 				"lon" in x &&
 				"lat" in x &&
 				x.alternate_names.every(y =>
@@ -49,11 +48,11 @@ describe('GET /api/v1/search', () => {
 
 	it('should return one peak by ID', done => {
 		request(app)
-		.get('/api/v1/search?q=8688616')
+		.get('/api/v1/search?q=7118390')
 		.set('Authorization', user.token)
 		.expect(200)
 		.expect(res => assert(res.body.length === 1))
-		.expect(res => assert(res.body[0].id === 8688616))
+		.expect(res => assert(res.body[0].id === 7118390))
 		.end(done);
 	});
 });
