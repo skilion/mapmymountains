@@ -19,7 +19,7 @@ localization.init = function ()
 		let lang = Cookies.get('language');
 		this.setLanguage(lang);
 	} else {
-		this.setLanguage('it');
+		this.setLanguage('en');
 	}
 }
 
