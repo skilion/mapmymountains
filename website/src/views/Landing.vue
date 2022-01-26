@@ -81,7 +81,7 @@ Landing page for a quick intro of MapMyMountains.
 	</b-row>
 	<b-row>
 		<b-col class="text-center h4" style="margin-top:10rem;margin-bottom:10rem">
-			<b-link to="/register">
+			<b-link to="/login">
 				{{localization.landing_register}}
 			</b-link>
 		</b-col>

@@ -76,6 +76,7 @@ router.post('/',
 	common.validate(),
 	common.requirePermission('create_campaign'),
 	async (req, res, next) => {
+		return res.status(202).end();
 		try {
 			req.body.creation_time = new Date();
 			req.body.user_id = await auth.selectTokenUserId(req.get('authorization'));
@@ -93,6 +94,7 @@ router.delete('/:id',
 	common.validate(),
 	common.requirePermission('create_campaign'),
 	async (req, res, next) => {
+		return res.status(202).end();
 		try {
 			await campaigns.delete(req.params.id);
 			res.status(204).end();
@@ -115,6 +117,7 @@ router.put('/:id',
 	common.validate(),
 	common.requirePermission('create_campaign'),
 	async (req, res, next) => {
+		return res.status(202).end();
 		try {
 			req.body.id = req.params.id;
 			let campaign = await campaigns.replace(req.body);

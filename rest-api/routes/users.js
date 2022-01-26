@@ -18,6 +18,7 @@ router.post('/',
 	body('password').isLength({min: 5}),
 	common.validate(),
 	async (req, res, next) => {
+		return res.status(503).end();
 		try {
 			let userId = req.body.id;
 
@@ -95,6 +96,7 @@ router.patch('/:id',
 	body('view_tutorial').isBoolean().optional(),
 	common.validate(),
 	async (req, res, next) => {
+		return res.status(202).end();
 		try {
 			let permissions = await auth.selectTokenPermissions(req.get('authorization'));
 			let userId = await auth.selectTokenUserId(req.get('authorization'));
@@ -128,6 +130,7 @@ router.delete('/:id',
 	param('id').matches(/^\w{5,}$/),
 	common.validate(),
 	async (req, res, next) => {
+		return res.status(202).end();
 		try {
 			let permissions = await auth.selectTokenPermissions(req.get('authorization'));
 			let userId = await auth.selectTokenUserId(req.get('authorization'));
@@ -148,6 +151,7 @@ router.post('/:id/password_reset',
 	param('id').matches(/^\w{5,}$/),
 	common.validate(),
 	async (req, res, next) => {
+		return res.status(202).end();
 		try {
 			let userId = req.params.id;
 			let userData = await users.select(userId);
@@ -170,6 +174,7 @@ router.post('/:id/password_reset/:code',
 	body('password').isLength({min: 5}),
 	common.validate(),
 	async (req, res, next) => {
+		return res.status(202).end();
 		try {
 			let userId = req.params.id;
 			let code = req.params.code;
@@ -191,6 +196,7 @@ router.post('/:id/activate/:code',
 	param('code').isString(),
 	common.validate(),
 	async (req, res, next) => {
+		return res.status(202).end();
 		try {
 			let userId = req.params.id;
 			let code = req.params.code;

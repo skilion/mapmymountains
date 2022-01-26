@@ -11,6 +11,7 @@ router.post('/',
 	body('text').isString(),
 	common.validate(),
 	async (req, res, next) => {
+		return res.status(202).end();
 		try {
 			let text = req.body.text;
 			await email.sendFeedback(text);
