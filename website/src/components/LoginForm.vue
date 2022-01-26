@@ -48,9 +48,9 @@ export default {
 		return {
 			locale,
 			error: '',
-			username: '',
+			username: 'admin',
 			usernameError: '',
-			password: '',
+			password: 'admin',
 			passwordError: '',
 			showSpinner: false
 		}
