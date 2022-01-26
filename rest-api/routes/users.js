@@ -185,7 +185,7 @@ router.post('/:id/password_reset/:code',
 	}
 );
 
-// send an email to start the password reset procedure
+// activate an user
 router.post('/:id/activate/:code',
 	param('id').matches(/^\w{5,}$/),
 	param('code').isString(),
