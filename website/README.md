@@ -3,11 +3,11 @@
 Map My Mountains is a crowdsourcing web application where users improve the quality of mountain elements
 
 ## Build Setup
-Configure `src/config.json` to match your environment:
-* `api_endpoint`: URL that points to the rest-api service.
-* `terrain_provider`: URL that points to Cesium terrain server (optional).
-* `debug_info`: set to true to display debug info in Map3D.
-* `cesium_ion_access_token`: token to use the Cesium ion API.
+Copy `.env` to `.env.local` and update it to match your environment:
+* `VUE_APP_API_ENDPOINT`: URL that points to the rest-api service.
+* `VUE_APP_TERRAIN_PROVIDER`: URL that points to Cesium terrain server (optional).
+* `VUE_APP_DEBUG_INFO`: set to true to display debug info in Map3D.
+* `VUE_APP_CESIUM_ION_ACCESS_TOKEN`: token to use the Cesium ion API.
 
 ``` bash
 # install project dependencies

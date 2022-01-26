@@ -22,7 +22,6 @@ Events:
 <script>
 import Cesium from 'cesium';
 import CesiumNavigation from 'cesium-navigation';
-import config from '@/config.json';
 import localization from '@/assets/localization';
 import * as math from '@/assets/math';
 import '@/../node_modules/cesium-navigation/Source/Styles/cesium-navigation.less';
@@ -39,7 +38,7 @@ let flags = {
 }
 
 // set Cesium Ion access token
-Cesium.Ion.defaultAccessToken = config.cesium_ion_access_token;
+Cesium.Ion.defaultAccessToken = process.env.VUE_APP_CESIUM_ION_ACCESS_TOKEN;
 
 // color for polygon of GeoJson geometry
 const TRANSPARENT_DODGER_BLUE = new Cesium.Color(.11, .56, 1, .3);
@@ -153,8 +152,8 @@ export default {
 		let viewer = new Cesium.Viewer(this.$el, {
 			scene3DOnly: true,
 			requestRenderMode: true,
-			terrainProvider: config.terrain_provider
-				? new Cesium.CesiumTerrainProvider({ url: config.terrain_provider })
+			terrainProvider: process.env.VUE_APP_TERRAIN_PROVIDER
+				? new Cesium.CesiumTerrainProvider({ url: process.env.VUE_APP_TERRAIN_PROVIDER })
 				: Cesium.createWorldTerrain({}),
 			animation: false,
 			baseLayerPicker: false,
@@ -173,7 +172,7 @@ export default {
 		viewer.scene.globe.depthTestAgainstTerrain = true;
 
 		// enable debug inspector
-		if (config.debug_info) {
+		if (process.env.VUE_APP_DEBUG_INFO == false) {
 			viewer.extend(Cesium.viewerCesiumInspectorMixin);
 		}
 		
@@ -460,7 +459,7 @@ export default {
 				this.rotationButtonDiv.style.display = 'none';
 				viewer.cesiumNavigation.container.style.display = 'none';
 				viewer.cesiumWidget.creditContainer.style.display = 'none';
-				if (config.debug_info) {
+				if (process.env.VUE_APP_DEBUG_INFO == false) {
 					viewer.cesiumInspector.container.style.display = 'none';
 					viewer.scene.debugShowFramesPerSecond = false;
 				}
@@ -476,7 +475,7 @@ export default {
 				this.rotationButtonDiv.style.display = 'block';
 				viewer.cesiumNavigation.container.style.display = 'block';
 				viewer.cesiumWidget.creditContainer.style.display = 'block';
-				if (config.debug_info) {
+				if (process.env.VUE_APP_DEBUG_INFO == false) {
 					viewer.cesiumInspector.container.style.display = 'block';
 					viewer.scene.debugShowFramesPerSecond = true;
 				}

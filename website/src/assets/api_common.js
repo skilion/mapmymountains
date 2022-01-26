@@ -1,6 +1,5 @@
 import axios from 'axios';
 import Cookies from 'cookies-js';
-import * as config from '@/config.json';
 
 export default {
 
@@ -13,7 +12,7 @@ export default {
 	 */
 	get(path) {
 		return axios.get(
-			config.api_endpoint + path,
+			process.env.VUE_APP_API_ENDPOINT + path,
 			{ "headers": { "Authorization": this.token } }
 		)
 		.then(res => res.data);
@@ -26,7 +25,7 @@ export default {
 	 */
 	patch(path, data) {
 		return axios.patch(
-			config.api_endpoint + path,
+			process.env.VUE_APP_API_ENDPOINT + path,
 			data,
 			{ "headers": { "Authorization": this.token } }
 		)
@@ -40,7 +39,7 @@ export default {
 	 */
 	post(path, data) {
 		return axios.post(
-			config.api_endpoint + path,
+			process.env.VUE_APP_API_ENDPOINT + path,
 			data,
 			{ "headers": { "Authorization": this.token } }
 		)
@@ -53,7 +52,7 @@ export default {
 	 */
 	delete(path) {
 		return axios.delete(
-			config.api_endpoint + path,
+			process.env.VUE_APP_API_ENDPOINT + path,
 			{ "headers": { "Authorization": this.token } }
 		)
 		.then(res => res.data);
@@ -66,7 +65,7 @@ export default {
 	 */
 	put(path, data) {
 		return axios.put(
-			config.api_endpoint + path,
+			process.env.VUE_APP_API_ENDPOINT + path,
 			data,
 			{ "headers": { "Authorization": this.token } }
 		)
