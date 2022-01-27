@@ -1,8 +1,9 @@
-const config = require('../config');
 const hash = require('./hash');
 const random = require('./random');
 const users = require('./users');
 const { db } = require('./db');
+
+const token_duration_sec = process.env.TOKEN_DURATION_SEC;
 
 const testPassQuery = `
 	SELECT 1 AS res
@@ -41,7 +42,7 @@ module.exports.login = async function (userId, password) {
 	await db.none(insertToken, {id: userId, creation_time: creation_time, token: token});
 	return {
 		token: token,
-		expiration_time: new Date(now + config.token_duration_sec * 1000)
+		expiration_time: new Date(now + token_duration_sec * 1000)
 	}
 }
 
@@ -58,7 +59,7 @@ module.exports.selectTokenPermissions = async function (token)
 		INNER JOIN access_token AS c ON user_permission.user_id = c.mmm_user_id
 		WHERE c.token = $(token) AND c.creation_time >= $(time)
 	`;
-	let time = new Date(Date.now() - config.token_duration_sec * 1000);
+	let time = new Date(Date.now() - token_duration_sec * 1000);
 	let res = await db.any(query, { token, time });
 	return res.map(x => x.permission_id);
 }
@@ -73,7 +74,7 @@ module.exports.selectTokenUserId = async function (token) {
 		FROM access_token
 		WHERE token = $(token) AND creation_time >= $(time)
 	`;
-	let time = new Date(Date.now() - config.token_duration_sec * 1000);
+	let time = new Date(Date.now() - token_duration_sec * 1000);
 	let res = await db.oneOrNone(query, { token, time});
 	return res ? res.mmm_user_id : null;
 }
@@ -89,6 +90,6 @@ module.exports.createToken = async function (userId) {
 	await db.none(insertToken, { id: userId, creation_time, token });
 	return {
 		token,
-		expiration_time: new Date(creation_time.getTime() + config.token_duration_sec * 1000)
+		expiration_time: new Date(creation_time.getTime() + token_duration_sec * 1000)
 	}
 }

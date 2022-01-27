@@ -1,7 +1,16 @@
-const config = require('../config');
-const nodemailer = require('nodemailer');
+const nodemailer = require("nodemailer");
 
-let transporter = nodemailer.createTransport(config.nodemailer);
+const config = {
+    host: process.env.NODEMAILER_HOST,
+    port: process.env.NODEMAILER_PORT,
+    secure: process.env.NODEMAILER_SECURE,
+    auth: {
+        user: process.env.NODEMAILER_USER,
+        pass: process.env.NODEMAILER_PASS
+    }
+}
+
+const transporter = nodemailer.createTransport(config);
 
 /**
  * Sends an email with a link to reset the password of a specified user.

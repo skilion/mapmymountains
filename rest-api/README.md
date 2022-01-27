@@ -1,17 +1,17 @@
 # Map My Mountains REST API
-This app offers a set of HTTP REST APIs to interact with the Map My Mountains database with proper authentication.
+This app offers a set of HTTP REST APIs to interact with the Map My Mountains database with  authentication.
 
 ## Installation
-Edit `config.json` to match your environment:
-* `port`: port to use
-* `db_user`: database username
-* `db_pass`: database password
-* `db_address`: database address
-* `db_name`: name of the database to use
-* `token_duration_sec`: duration of a token (how much an user is logged in)
-* `website_address`: URL of the website
-* `feedback_email`: email to receive the user feedbacks
-* `nodemailer`: nodemailer transport object, see: https://nodemailer.com/smtp/
+Copy `.env` to `.evn.local` and edit it to match your environment:
+* `PORT`: port to use
+* `DB_USER`: database username
+* `DB_PASS`: database password
+* `DB_ADDRESS`: database address
+* `DB_NAME`: name of the database to use
+* `TOKEN_DURATION_SEC`: duration of a token (how long an user stays logged in)
+* `WEBSITE_ADDRESS`: URL of the website
+* `FEEDBACK_EMAIL`: email to receive the user feedbacks
+* `NODEMAILER_*`: parameters of the nodemailer transport object, see: https://nodemailer.com/smtp/
 
 ``` bash
 # install project dependencies

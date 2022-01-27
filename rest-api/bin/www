@@ -1,12 +1,14 @@
 #!/usr/bin/env node
 
+const dotenv = require('dotenv-flow');
+dotenv.config();
+
 const app = require('../app');
-const config = require('../config');
 const debug = require('debug')('rest-api:server');
 const http = require('http');
 
 // get config vars from environment
-const port = normalizePort(process.env.PORT || config.port);
+const port = normalizePort(process.env.PORT);
 
 // create HTTP server
 const server = http.createServer(app);
