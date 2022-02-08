@@ -34,3 +34,6 @@ app.use('/api/v1/search', searchRouter);
 app.use('/api/v1/sources', sourcesRouter);
 app.use('/api/v1/stats', statsRouter);
 app.use('/api/v1/users', usersRouter);
+
+// health check
+app.get('/', (req, res) => res.send('OK'));
