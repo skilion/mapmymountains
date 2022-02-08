@@ -1,0 +1,39 @@
+name: deploy-beanstalk
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./rest-api
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Create ZIP deployment package
+        run: zip -r deploy_package.zip ./
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: "us-east-1"
+
+      - name: Upload package to S3 bucket
+        run: aws s3 cp deploy_package.zip s3://mapmymountains-restapi-deploy/
+
+      - name: Create new ElasticBeanstalk Application Version
+        run: |
+          aws elasticbeanstalk create-application-version \
+          --application-name MapMyMountainsRestApi \
+          --source-bundle S3Bucket="mapmymountains-restapi-deploy",S3Key="deploy_package.zip" \
+          --version-label "v${{ github.sha }}"
+
+      - name: Deploy ElasticBeanstalk Application
+        run: aws elasticbeanstalk update-environment --environment-name Mapmymountainsrestapi-env --version-label "v${{ github.sha }}"
