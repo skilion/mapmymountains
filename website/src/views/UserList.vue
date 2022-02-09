@@ -12,10 +12,10 @@ This view shows all the users and allows to delete them or toggle their permissi
 	<b-row class="mb-3">
 		<b-col>
 			<b-table sort-by="id" :items="users" :fields="fields">
-				<template slot="creation_time" slot-scope="data">
+				<template #cell(creation_time)="data">
 					{{new Date(data.value).toLocaleString(locale.getLanguage(), { timeZone: 'UTC' })}}
 				</template>
-				<template slot="permissions" slot-scope="data">
+				<template #cell(permissions)="data">
 					<b-form-checkbox-group
 						v-model="data.item.permissions"
 						:options="user_permissions"
